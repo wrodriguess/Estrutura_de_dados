@@ -1,0 +1,3 @@
+1. O que e e como funciona uma estrutura do tipo fila ´
+R - Uma fila funciona no conceito first in, first out (primeiro a chegar é o primeiro a sair).
+O primeiro a ser inserido é o primeiro a ser removido, só posso acessar o primeiro elemento da fila.

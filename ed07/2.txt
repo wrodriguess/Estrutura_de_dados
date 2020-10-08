@@ -1,0 +1,2 @@
+2. Em que situações uma fila pode ser utilizada?
+R - Documentos enviados a uma impressora, serão impressos de acordo com a ordem de chegada.
