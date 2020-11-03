@@ -1,0 +1,5 @@
+2. Quais as vantagens de se programar com TADs?
+R - encapsulamento e reúso.
+
+
+

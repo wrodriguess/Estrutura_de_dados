@@ -1,0 +1,4 @@
+1)O que e um Tipo Abstrato de Dados (TAD) e qual a caracterıstica fundamental na sua utilização?
+R - TAD (Tipo abstrato de dados): é conhecida como um
+conjunto de assinaturas de operações que especifica
+a sua interface. Sua principal caracteristica é a abstração.
