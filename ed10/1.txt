@@ -1,0 +1,7 @@
+1- O que são listas e quais suas utilizações?
+R - É uma estrutura de dados na qual elementos de um mesmo tipo de dado estão organizados de maneira sequencial.
+Criar; inserir; remover; lista cheia; lista vazia; destruir
+
+
+
+
