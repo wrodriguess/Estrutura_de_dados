@@ -1,0 +1,5 @@
+2-Qual a diferença entre uma AB e uma ABB ? 
+
+R - ABB: Uma árvore binaria de busca (ABB) é uma estrutura de dados baseada em nós, onde todos os nós da sub árvore à esquerda possuem um valor numérico inferior ao nó raiz e todos os nós da sub árvore a direita possui um valor numérico superior ao nó raiz
+
+AB: Já as árvores binarias simples os valores numéricos são distribuídos aleatoriamente pela árvore.

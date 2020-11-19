@@ -1,0 +1,5 @@
+1- O que é uma árvore binária e quais seus componentes?
+
+R - As árvores são estruturas de dados baseadas em listas encadeadas que possuem um nó superior também chamado de raiz que aponta para outros nós, chamados de nós filhos, que podem ser pais de outros nós.
+
+Componentes: nós, raiz, filhos, pais e folhas
