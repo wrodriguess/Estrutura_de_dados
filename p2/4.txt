@@ -1,0 +1,7 @@
+Árvore binária é um conjunto de registros que satisfaz certas condições. 
+
+Essas condições não serão dadas explicitamente, mas elas vão ser implicitamente claras no contexto. 
+
+Os registros são chamados nós e assim com uma fila um nó da árvore binaria é composto pelo dado e dois ponteiros que apontam para os próximos nós assim como a lista duplamente ligada. 
+
+O algorítimo de árvore binária, quando bem balanceado é utilizado em sistemas de busca e sistemas de decisões de Inteligencia Artificial por conta do desempenho e da quantidade de dados que pode ser empregada.

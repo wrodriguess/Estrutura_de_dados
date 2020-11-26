@@ -1,0 +1,22 @@
+TAD é uma especificação de um conjunto de dados e operações que podem ser executadas sobre esses dados.  
+
+O TAD é implementado usando-se um tipo composto struct ou record com os valores pertencentes ao TAD sendo assim os operadores do TAD implementam regras bem definidas para manipulação dos valores armazenados e os valores armazenados devem ser manipulados exclusivamente pelos operadores do TAD. 
+
+Por isso um bom exemplo de implementação de TAD é uma aplicação de banco, onde é necessário realizar operações rotineiras utilizando dados variados de conta como o número da conta, agencia, saldo e extrato da operação. 
+
+No exemplo abaixo o TAD é implementado com esses mesmos dados no começo do programa e é utilizado em uma outra função, void inicializar. Note que para atribuir o valor é necessário utilizar o operador -> para utilizar o dado do tipo criado pelo TAD
+
+typedef struct conta {
+	int agencia;
+    	int numeroConta;
+    	float saldo;
+    	float extrato[50];
+} contaCorrente;
+
+void inicializar(contaCorrente *conta){
+    	conta->saldo=0;
+    	printf("Informe o numero da agencia:");
+    	scanf("%i", &conta->agencia);
+    	printf("Informe o numero da conta:");
+    	scanf("%i", &conta->numeroConta);
+}

@@ -1,0 +1,280 @@
+Fila é uma estrutura de dados dinâmica que permite a inserção e remoção de elementos e novos objetos. 
+Tem como principal característica a FIFO (First-In-First-Out) que consiste em sempre que houver uma remoção, o elemento removido deve ser o que está na estrutura há mais tempo.
+Exemplo: Fila de caixa de super mercado, o primeiro a entrar na fila será o primeiro a ser atendido.
+
+Pilha é uma estrutura de dados dinâmica que permite a inserção e remoção de elementos e novos objetos, porém a principal característica da pilha é: sempre que houver uma remoção, o elemento removido é o que está na estrutura há menos tempo. 
+Exemplo: Pilha de pratos, você só consegue acessar o de baixo (primeiro a ser inserido) se remover os de cima.
+
+
+
+Exemplo de implementação de uma fila
+
+#include <stdio.h>
+#include <stdlib.h>
+
+struct Node{
+ int num;
+ struct Node *prox;
+};
+typedef struct Node node;
+
+int tam;
+
+int menu(void);
+void opcao(node *FILA, int op);
+void inicia(node *FILA);
+int vazia(node *FILA);
+node *aloca();
+void insere(node *FILA);
+node *retira(node *FILA);
+void exibe(node *FILA);
+void libera(node *FILA);
+
+
+int main(void)
+{
+ node *FILA = (node *) malloc(sizeof(node));
+ if(!FILA){
+  printf("Sem memoria disponivel!\n");
+  exit(1);
+ }else{
+ inicia(FILA);
+ int opt;
+
+ do{
+  opt=menu();
+  opcao(FILA,opt);
+ }while(opt);
+
+ free(FILA);
+ return 0;
+ }
+}
+
+
+int menu(void)
+{
+ int opt;
+
+ printf("Escolha a opcao\n");
+ printf("0. Sair\n");
+ printf("1. Zerar fila\n");
+ printf("2. Exibir fila\n");
+ printf("3. Adicionar Elemento na Fila\n");
+ printf("4. Retirar Elemento da Fila\n");
+ printf("Opcao: "); scanf("%d", &opt);
+
+ return opt;
+}
+
+void opcao(node *FILA, int op)
+{
+ node *tmp;
+ switch(op){
+  case 0:
+   libera(FILA);
+   break;
+
+  case 1:
+   libera(FILA);
+   inicia(FILA);
+   break;
+
+  case 2:
+   exibe(FILA);
+   break;
+
+  case 3:
+   insere(FILA);
+   break;
+
+  case 4:
+   tmp= retira(FILA);
+   if(tmp != NULL){
+    printf("Retirado: %3d\n\n", tmp->num);
+    libera(tmp);
+   }
+   break;
+
+  default:
+   printf("Comando invalido\n\n");
+ }
+}
+
+void inicia(node *FILA)
+{
+ FILA->prox = NULL;
+ tam=0;
+}
+
+int vazia(node *FILA)
+{
+ if(FILA->prox == NULL)
+  return 1;
+ else
+  return 0;
+}
+
+node *aloca()
+{
+ node *novo=(node *) malloc(sizeof(node));
+ if(!novo){
+  printf("Sem memoria disponivel!\n");
+  exit(1);
+ }else{
+  printf("Novo elemento: "); scanf("%d", &novo->num);
+  return novo;
+ }
+}
+
+void insere(node *FILA)
+{
+ node *novo=aloca();
+ novo->prox = NULL;
+
+ if(vazia(FILA))
+  FILA->prox=novo;
+ else{
+  node *tmp = FILA->prox;
+
+  while(tmp->prox != NULL)
+   tmp = tmp->prox;
+
+  tmp->prox = novo;
+ }
+ tam++;
+}
+
+
+node *retira(node *FILA)
+{
+ if(FILA->prox == NULL){
+  printf("Fila ja esta vazia\n");
+  return NULL;
+ }else{
+  node *tmp = FILA->prox;
+  FILA->prox = tmp->prox;
+  tam--;
+  return tmp;
+ }
+
+}
+
+
+void exibe(node *FILA)
+{
+ if(vazia(FILA)){
+  printf("Fila vazia!\n\n");
+  return ;
+ }
+
+ node *tmp;
+ tmp = FILA->prox;
+ printf("Fila :");
+ while( tmp != NULL){
+  printf("%5d", tmp->num);
+  tmp = tmp->prox;
+ }
+ printf("\n        ");
+ int count;
+ for(count=0 ; count < tam ; count++)
+  printf("  ^  ");
+ printf("\nOrdem:");
+ for(count=0 ; count < tam ; count++)
+  printf("%5d", count+1);
+
+
+ printf("\n\n");
+}
+
+void libera(node *FILA)
+{
+ if(!vazia(FILA)){
+  node *proxNode,
+     *atual;
+
+  atual = FILA->prox;
+  while(atual != NULL){
+   proxNode = atual->prox;
+   free(atual);
+   atual = proxNode;
+  }
+ }
+}
+
+
+
+Exemplo de implementação de uma pilha:
+
+#include <stdio.h>
+#include <stdlib.h>
+
+void push(char *v, int *t, char aux);
+void pop(char *v, int *t);
+void top(char *v, int *t);
+int isEmpty(int *t);
+int isFull(char *v, int *t);
+int max = 20;
+
+int main()
+{
+	char aux[max];
+    char pilha[max];
+    char *p = pilha;
+    int t = -1;
+	int i;
+	printf("Informe um nome:");	
+	scanf("%s", &aux);
+
+	for(i=0; i<max; i++){
+		push(p, &t, aux[i]);
+    }
+	while(t>=0)
+	{
+	    top(p, &t);
+		pop(p, &t);
+	}
+    return 0;
+}
+
+
+void push(char *v, int *t, char aux){    
+    (*t)++; //isfull
+    if(isFull(v, t)) {
+        printf("Pilha cheia !!! \n");
+    } else {
+        v[(*t)] = aux;     
+    }
+}
+
+void pop(char *v, int *t){
+    if(isEmpty(t)) {
+        printf("Pilha vazia !!! \n");
+    } else {
+        (*t)--;
+    }
+}
+
+void top(char *v, int *t){
+    if(isEmpty(t)) {
+        printf("Pilha vazia !!! \n");
+    } else {
+        printf("O topo = %c \n", v[(*t)]);   
+    }
+}
+
+int isEmpty(int *t){
+    if((*t)<0) {
+        return 1;
+    }  else {
+        return 0;
+    }  
+}
+
+int isFull(char *v, int *t){
+    if(max<(*t)) {
+        return 1;
+    }  else {
+        return 0;
+    }  
+}

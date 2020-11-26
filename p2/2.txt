@@ -1,0 +1,7 @@
+Listas são estruturas básicas de um único tipo, com cada célula ligada sequencialmente como um array, cada elemento é composto dois itens, o primeiro é o dado em si e em seguida um ponteiro que aponta para o próximo elemento da lista.
+
+A lista duplamente ligada que é como uma lista simples, porém ela contém dois ponteiros, sendo que a célula é composta de ponteiro + dado + ponteiro, assim é possível que célula aponte para a célula anterior assim como para a próxima, no final da lista o ponteiro que aponta para a próxima célula aponta para valor NULL. 
+
+Lista circular é uma lista comum que ao final da lista a última célula aponta para a primeira.
+
+Listas tem algumas vantagens sobre vetores e matrizes, a principal vantagem é que são o número de células que serão utilizadas não precisa ser conhecido no momento da compilação, diferente da matriz e do vetor. 
